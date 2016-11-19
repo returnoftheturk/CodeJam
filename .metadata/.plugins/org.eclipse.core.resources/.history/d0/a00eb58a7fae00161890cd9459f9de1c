@@ -1,0 +1,14 @@
+package dopeCode;
+
+public class Courses {
+	private String name;
+	private Time time1, time2;
+	public Courses(String name, Time time1, Time time2){
+		this.name = name;
+		this.time1 = time1;
+		this.time2 = time2;
+		
+		
+	}
+
+}
