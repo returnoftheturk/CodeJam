@@ -23,7 +23,5 @@ public class Time {
 		return this.endTime;
 	}
 	
-	public String toString(){
-		return "\nDay: " + day + "-Start Time: " + startTime + "-End Time: " + endTime;
-	}
+	
 }

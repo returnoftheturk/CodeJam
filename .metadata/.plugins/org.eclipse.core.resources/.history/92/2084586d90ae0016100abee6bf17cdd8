@@ -45,11 +45,10 @@ public class Main {
 				Time time1 = new Time (day1, start1, end1);
 				Time time2 = new Time (day2, start2, end2);
 				
-//				System.out.println(time1.toString());
-//				System.out.println(time2.toString());
+				System.out.println(time1.toString());
+				System.out.println(time2.toString());
 				
 				Courses course = new Courses(name, time1, time2);
-				System.out.println(course.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

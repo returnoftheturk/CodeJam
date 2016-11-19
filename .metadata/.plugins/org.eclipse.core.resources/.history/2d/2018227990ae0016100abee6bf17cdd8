@@ -49,7 +49,7 @@ public class Main {
 //				System.out.println(time2.toString());
 				
 				Courses course = new Courses(name, time1, time2);
-				System.out.println(course.toString());
+				course.toString();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

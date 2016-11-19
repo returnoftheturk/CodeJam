@@ -21,7 +21,7 @@ public class Main {
 //			System.out.println(classesObject);
 			String coursename = "";
 //			System.out.println(classesObject.size());
-			for (int i = 1; i <= classesObject.size(); i++) {
+			for (int i = 1; i < classesObject.size(); i++) {
 				String name, day1, start1, end1, day2, start2, end2;
 				int courseNumber = 100 + i;
 				
@@ -45,11 +45,7 @@ public class Main {
 				Time time1 = new Time (day1, start1, end1);
 				Time time2 = new Time (day2, start2, end2);
 				
-//				System.out.println(time1.toString());
-//				System.out.println(time2.toString());
-				
 				Courses course = new Courses(name, time1, time2);
-				System.out.println(course.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
