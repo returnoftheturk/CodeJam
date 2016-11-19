@@ -50,7 +50,6 @@ public class Main {
 				
 				Courses course = new Courses(name, time1, time2);
 				System.out.println(course.toString());
-				//viveks gay
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
