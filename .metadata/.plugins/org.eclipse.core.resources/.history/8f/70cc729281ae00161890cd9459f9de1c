@@ -22,32 +22,23 @@ public class Main {
 			String coursename = "";
 			System.out.println(classesObject.size());
 			for (int i = 1; i < classesObject.size(); i++) {
-				String name, day1, start1, end1, day2, start2, end2;
+				String day1, start1, end1, day2, start2, end2;
 				int courseNumber = 100 + i;
 				
 				JSONObject courseObject = (JSONObject) classesObject.get(Integer.toString(courseNumber));
 				System.out.println(courseObject);
-				
-				name = (String) courseObject.get("name");
-				
 				JSONObject times = (JSONObject) courseObject.get("times");
+				JSONObject time1 = (JSONObject) times.get("time1");
+				day1 = (String) time1.get("day");
+				start1 = (String) time1.get("start");
+				end1 = (String) time1.get("end");
+				JSONObject time2 = (JSONObject) times.get("time2");
 				
-				JSONObject timeObject1 = (JSONObject) times.get("time1");
-				day1 = (String) timeObject1.get("day");
-				start1 = (String) timeObject1.get("start");
-				end1 = (String) timeObject1.get("end");
+				String day = (String) time1.get("day");
 				
-				JSONObject timeObject2 = (JSONObject) times.get("time2");
-				day2 = (String) timeObject2.get("day");
-				start2 = (String) timeObject2.get("start");
-				end2 = (String) timeObject2.get("end");
+				Courses course = new Course();
 				
-				Time time1 = new Time (day1, start1, end1);
-				Time time2 = new Time (day2, start2, end2);
-				
-				Courses course = new Courses(name, time1, time2);
-				
-				
+				System.out.println(day);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

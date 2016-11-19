@@ -32,22 +32,22 @@ public class Main {
 				
 				JSONObject times = (JSONObject) courseObject.get("times");
 				
-				JSONObject timeObject1 = (JSONObject) times.get("time1");
-				day1 = (String) timeObject1.get("day");
-				start1 = (String) timeObject1.get("start");
-				end1 = (String) timeObject1.get("end");
+				JSONObject time1 = (JSONObject) times.get("time1");
+				day1 = (String) time1.get("day");
+				start1 = (String) time1.get("start");
+				end1 = (String) time1.get("end");
 				
-				JSONObject timeObject2 = (JSONObject) times.get("time2");
-				day2 = (String) timeObject2.get("day");
-				start2 = (String) timeObject2.get("start");
-				end2 = (String) timeObject2.get("end");
+				JSONObject time2 = (JSONObject) times.get("time2");
+				day2 = (String) time2.get("day");
+				start2 = (String) time2.get("start");
+				end2 = (String) time2.get("end");
 				
 				Time time1 = new Time (day1, start1, end1);
 				Time time2 = new Time (day2, start2, end2);
 				
-				Courses course = new Courses(name, time1, time2);
+				Courses course = new Course(name, time1, time2);
 				
-				
+				System.out.println(day);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
