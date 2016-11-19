@@ -1,0 +1,32 @@
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+public class Main {
+	public static void main(String args[]){
+		
+	}
+
+}
+
+private String getDataFromJson(String moviesJsonStr) throws JSONException {
+    JSONObject classes = new JSONObject("classes");
+    JSONArray trailersArray = moviesJson.getJSONArray("results");
+
+    int numTrailers = trailersArray.length();
+    String youtubePath = "";
+    String trailerDescJson = "";
+
+    for (int i = 0; i <numTrailers ; i++) {
+        JSONObject trailer = trailersArray.getJSONObject(i);
+        youtubePath = trailer.getString("key");
+        trailerDescJson = trailer.getString("name");
+        mDescList.add(trailerDescJson);
+        mTrailerAdapter.setArrayLists(trailerDescJson, youtubePath);
+    }
+
+
+    return youtubePath;
+
+}

@@ -1,0 +1,49 @@
+
+import org.json.simple.parser.ParseException;
+import org.json.simple.JSONObject;
+
+import java.io.FileReader;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+
+public class Main {
+	public static void main(String args[]) {
+		JSONParser parser = new JSONParser();
+
+		try {
+			Object obj = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/classes.json"));
+			JSONObject classes = (JSONObject) obj;
+//			JSONArray classesArray = (JSONArray) classes.get("classes");
+			JSONObject classesObject = classes.get("classes");
+			String coursename="";
+			for (int i = 0; i < classesArray.size(); i++) {
+				JSONObject course = (JSONObject) classesArray.get(i);
+				coursename = (String) course.get("name");
+				System.out.println(coursename);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private static String getDataFromJson() {
+		
+
+		// int numTrailers = trailersArray.length();
+		String youtubePath = "";
+		// String trailerDescJson = "";
+		//
+		// for (int i = 0; i <numTrailers ; i++) {
+		// JSONObject trailer = trailersArray.getJSONObject(i);
+		// youtubePath = trailer.getString("key");
+		// trailerDescJson = trailer.getString("name");
+		// mDescList.add(trailerDescJson);
+		// mTrailerAdapter.setArrayLists(trailerDescJson, youtubePath);
+		// }
+
+		return youtubePath;
+	}
+
+}

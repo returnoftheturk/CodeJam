@@ -1,0 +1,11 @@
+package dopeCode;
+
+public class Courses {
+	private String name;
+	
+	public Courses(){
+		
+		
+	}
+
+}
