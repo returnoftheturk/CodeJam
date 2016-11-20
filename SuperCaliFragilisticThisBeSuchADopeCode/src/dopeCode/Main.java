@@ -57,11 +57,13 @@ public class Main {
 			if (studentAvailability[i].getDay()==courseTime.getDay()){
 				if(studentAvailability[i].getStartTimeInt()<= courseTime.getEndTimeInt()&& 
 						studentAvailability[i].getEndTimeInt()>=courseTime.getEndTimeInt()){
-					studentAvailability[i].setStartTime(courseTime.getEndTime());
-					//updates start time.  might need to also check end time.
-					//possible bug
-					// student is available for this class at this time 
-					return true;
+					if(student.getCourseCount()<5 && course.getSection2StudentCount()<20){
+						studentAvailability[i].setStartTime(courseTime.getEndTime());
+						//updates start time.  might need to also check end time.
+						//possible bug
+						// student is available for this class at this time 
+						return true;
+					}
 				}
 				
 			}
@@ -78,11 +80,14 @@ public class Main {
 			if (studentAvailability[i].getDay()==courseTime.getDay()){
 				if(studentAvailability[i].getStartTimeInt()<= courseTime.getEndTimeInt()&& 
 						studentAvailability[i].getEndTimeInt()>=courseTime.getEndTimeInt()){
-					studentAvailability[i].setStartTime(courseTime.getEndTime());
-					//updates start time.  might need to also check end time.
-					//possible bug
-					// student is available for this class at this time 
-					return true;
+					if(student.getCourseCount()<5 && course.getSection2StudentCount()<20){
+						studentAvailability[i].setStartTime(courseTime.getEndTime());
+						//updates start time.  might need to also check end time.
+						//possible bug
+						// student is available for this class at this time 
+						return true;
+					}
+					
 				}
 				
 			}
