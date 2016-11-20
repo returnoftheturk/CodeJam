@@ -29,7 +29,7 @@ public class Main {
 					if (k==students.length-1 && i!=0){
 						k=0;
 					}
-					if (k==i-1 && i!=0){
+					if (k==i && i!=0){
 						break;
 					}
 					

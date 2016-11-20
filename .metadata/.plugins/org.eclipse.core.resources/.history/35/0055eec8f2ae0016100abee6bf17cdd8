@@ -18,10 +18,10 @@ public class Main {
 							if (checkAvailability1(students[k], courses[l])) {
 							} else if (checkAvailability2(students[k], courses[l])) {
 							}
-							if (l==courses.length-1 && j!=0){
+							if (l==courses.length-1&& j!=0){
 								l=0;
 							}
-							if (l==j-1 && j!=0){
+							if (l==j && j!=0){
 								break;
 							}
 						}
@@ -29,7 +29,7 @@ public class Main {
 					if (k==students.length-1 && i!=0){
 						k=0;
 					}
-					if (k==i-1 && i!=0){
+					if (k==i && i!=0){
 						break;
 					}
 					
