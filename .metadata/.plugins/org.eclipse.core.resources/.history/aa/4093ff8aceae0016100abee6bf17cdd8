@@ -1,0 +1,43 @@
+package dopeCode;
+
+public class TimeSlot {
+	public String day;
+	public String startTime;
+	public String endTime;
+	public Boolean[] availability = new Boolean[18];
+	
+	public TimeSlot(String day, String startTime, String endTime){
+		this.day = day;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		
+	}
+	
+	public String getDay(){
+		return this.day;
+	}
+	
+	public String getStartTime(){
+		return this.startTime;
+	}
+	
+	public String getEndTime(){
+		return this.endTime;
+	}
+	
+	public String toString(){
+		return "\nDay: " + day + "-Start Time: " + startTime + "-End Time: " + endTime;
+	}
+	
+	public void setStartTime(String newStartTime){
+		this.startTime = newStartTime;
+	}
+	
+	public void setEndTime(String newEndTime){
+		this.endTime = newEndTime;
+	}
+	
+	public static Time convertToTime(){
+		Time time = new Time (startTime);
+	}
+}

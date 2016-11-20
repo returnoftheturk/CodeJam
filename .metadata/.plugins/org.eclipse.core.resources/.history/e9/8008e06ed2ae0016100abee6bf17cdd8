@@ -1,0 +1,95 @@
+package dopeCode;
+
+import java.sql.Time;
+
+public class TimeSlot {
+	public String day;
+	public String startTime;
+	public String endTime;
+	public int startTimeInt;
+	public int endTimeInt;
+	public Boolean[] availability = new Boolean[18];
+
+	public TimeSlot(String day, String startTime, String endTime) {
+		this.day = day;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.startTimeInt = convertTimeToInt(startTime); 
+		this.endTimeInt = convertTimeToInt(endTime); 
+
+	}
+
+	public String getDay() {
+		return this.day;
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+	
+	public int getStartTimeInt(){
+		return this.startTimeInt;
+	}
+
+	public String toString() {
+		return "\nDay: " + day + "-Start Time: " + startTime + "-End Time: " + endTime;
+	}
+
+	public void setStartTime(String newStartTime) {
+		this.startTime = newStartTime;
+	}
+
+	public void setEndTime(String newEndTime) {
+		this.endTime = newEndTime;
+	}
+
+	public int convertTimeToInt(String inputTime) {
+		switch (inputTime) {
+		case "8:00am":
+			return 0;
+		case "8:30am":
+			return 1;
+		case "9:00am":
+			return 2;
+		case "9:30am":
+			return 3;
+		case "10:00am":
+			return 4;
+		case "10:30am":
+			return 5;
+		case "11:00am":
+			return 6;
+		case "11:30am":
+			return 7;
+		case "12:00am":
+			return 8;
+		case "12:30am":
+			return 9;
+		case "13:00am":
+			return 10;
+		case "13:30am":
+			return 11;
+		case "14:00am":
+			return 12;
+		case "14:30am":
+			return 13;
+		case "15:00am":
+			return 14;
+		case "15:30am":
+			return 15;
+		case "16:00am":
+			return 16;
+		case "16:30am":
+			return 17;
+		case "17:00am":
+			return 18;
+		default:
+			return 19;
+
+		}
+	}
+}

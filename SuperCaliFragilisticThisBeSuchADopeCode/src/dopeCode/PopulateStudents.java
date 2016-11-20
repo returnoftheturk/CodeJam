@@ -23,18 +23,18 @@ public class PopulateStudents {
 
 				JSONObject studentAvail = (JSONObject) studentArray.get(1);
 
-				Time[] studentTimes = new Time[studentAvail.size()];
+				TimeSlot[] studentTimes = new TimeSlot[studentAvail.size()];
 				for (int j = 0; j < studentAvail.size(); j++) {
 					JSONObject availabilityi = (JSONObject) studentAvail.get("avail" + Integer.toString(j + 1));
 
-					studentTimes[j] = new Time((String) availabilityi.get("day"), (String) availabilityi.get("start"),
+					studentTimes[j] = new TimeSlot((String) availabilityi.get("day"), (String) availabilityi.get("start"),
 							(String) availabilityi.get("end"));
 
 				}
 				students[i - 1] = new Student(studentName, studentTimes);
 				
 				
-				System.out.println(students[i - 1].toString());
+//				System.out.println(students[i - 1].toString());
 
 			}
 

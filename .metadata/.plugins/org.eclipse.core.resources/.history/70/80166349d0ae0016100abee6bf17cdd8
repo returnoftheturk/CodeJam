@@ -1,0 +1,58 @@
+package dopeCode;
+
+import java.sql.Time;
+
+import org.json.simple.parser.ParseException;
+
+public class Main {
+	public static Courses[] courses = new Courses[10];
+	public static Student[] students = new Student[80];
+
+	public static void main(String args[]) {
+		students = PopulateStudents.getDataFromStudentsJson();
+		courses = PopulateCourses.getDataFromCoursesJson();
+		
+		for (int i = 0; i<students.length; i++){
+			for (int j = 0; j<courses.length; j++){
+				for(int k=0; k<students.length;k++){
+					for(int l=0; l<courses.length;l++){
+						
+						
+						
+						
+						
+					}
+				
+				
+				
+				}
+				
+				
+				
+				
+				
+			}
+			
+		}
+	}
+	
+	public static boolean checkAvailability(Student student, Courses course){
+		TimeSlot[] studentAvailability = student.getStudentAvailability();
+		TimeSlot courseTime = course.getTime1();
+		
+		Time courseTimeS= courseTime.convertToTime(courseTime.getStartTime());
+		Time courseTimeE= courseTime.convertToTime(courseTime.getEndTime());
+		
+		for (int i = 0; i<studentAvailability.length; i++){
+			if (studentAvailability[i].getDay()==courseTime.getDay()){
+//				if (studentAvailability[i].convertToTime(studentAvailability[i].getStartTime())<=courseTimeS){
+//					
+//				}
+				
+			}
+			
+		}
+		return true;
+	}
+
+}
