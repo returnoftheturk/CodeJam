@@ -68,10 +68,6 @@ public class Student {
 		this.idNumber = id;
 	}
 	
-	public int getIdNumber(){
-		return this.idNumber;
-	}
-	
 	
 	
 }

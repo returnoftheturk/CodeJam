@@ -32,7 +32,7 @@ public class PopulateStudents {
 
 				}
 				students[i - 1] = new Student(studentName, studentTimes);
-				students[i - 1].setIdNumber(i);
+				students[i - 1].idNumber = i;
 				
 				
 //				System.out.println(students[i - 1].toString());

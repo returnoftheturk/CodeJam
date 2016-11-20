@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Student {
 	private String name;
 	private TimeSlot [] time;
-	private int idNumber;
 	private ArrayList<Courses> courseList1 = new ArrayList<Courses>();
 	private ArrayList<Courses> courseList2 = new ArrayList<Courses>();
 	
@@ -63,13 +62,6 @@ public class Student {
 			totalHours -= time[i].getStartTimeInt();
 		}
 		return totalHours;
-	}
-	public void setIdNumber(int id){
-		this.idNumber = id;
-	}
-	
-	public int getIdNumber(){
-		return this.idNumber;
 	}
 	
 	

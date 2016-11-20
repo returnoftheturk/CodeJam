@@ -18,14 +18,11 @@ public class Main {
 			System.out.println(students[i].getTotalHoursAvailable() + " ID : " + students[i].getIdNumber());
 			
 		}
-		System.out.println("\n SORT BY HOURS: ");
 		sortStudentsByHours();
-		
 		for (int i = 0; i<students.length; i++){
 			System.out.println(students[i].getTotalHoursAvailable() + " ID : " + students[i].getIdNumber());
 			
 		}
-		
 		populateRandomStudentArrayList();
 		populateRandomClassArrayList();
 		shuffleArrayList();
