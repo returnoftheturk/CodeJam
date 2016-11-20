@@ -57,10 +57,10 @@ public class Main {
 					JSONOutput.students = students;
 					JSONOutput.courses = courses;
 				}
-				totalCoursesTaken = 0;
+
 				
 			}
-			
+			totalCoursesTaken = 0;
 		}
 		
 		System.out.println("Max Value is: " + maxValue);

@@ -52,15 +52,16 @@ public class Main {
 						System.out.println(students[k].toStringCourseList());
 					}
 				}
-				if (totalCoursesTaken > maxValue) {
-					maxValue = totalCoursesTaken;
-					JSONOutput.students = students;
-					JSONOutput.courses = courses;
-				}
-				totalCoursesTaken = 0;
+				
+
 				
 			}
-			
+			if (totalCoursesTaken > maxValue) {
+				maxValue = totalCoursesTaken;
+				JSONOutput.students = students;
+				JSONOutput.courses = courses;
+			}
+			totalCoursesTaken = 0;
 		}
 		
 		System.out.println("Max Value is: " + maxValue);

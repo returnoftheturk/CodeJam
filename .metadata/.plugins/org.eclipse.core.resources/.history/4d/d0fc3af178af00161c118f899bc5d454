@@ -15,7 +15,7 @@ public class JSONOutput {
 		JSONOutput.courses = course;
 	}
 
-	public static String convertToJson() throws IOException {
+	public static String convertToJson() {
 		String formattedJson = "";
 
 		JSONObject jsonMainCourses = new JSONObject();

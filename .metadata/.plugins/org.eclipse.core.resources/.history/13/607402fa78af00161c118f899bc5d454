@@ -1,6 +1,5 @@
 package dopeCode;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,6 +12,7 @@ public class Main {
 	public static void main(String args[]) {
 		students = PopulateStudents.getDataFromStudentsJson();
 		courses = PopulateCourses.getDataFromCoursesJson();
+		
 
 		int totalCoursesTaken = 0;
 
@@ -23,54 +23,42 @@ public class Main {
 
 		int maxValue = 0;
 
-		for (int j = 0; j < 1000; j++) {
-			students = PopulateStudents.getDataFromStudentsJson();
-			courses = PopulateCourses.getDataFromCoursesJson();
-
-			for (int i = 0; i < 10; i++) {
-				sortStudentsByHours();
-				if (i % 2 == 0)
-					shuffleArrayList();
-				for (int k = 0; k < students.length; k++) {
-					if (students[k].getCourseCount() < 5) {
-						for (int l = 0; l < courses.length; l++) {
-							if (checkAvailability1(students[randomStudentArrayList.get(k)],
-									courses[randomClassArrayList.get(l)])) {
-							} else if (checkAvailability2(students[randomStudentArrayList.get(k)],
-									courses[randomClassArrayList.get(l)])) {
-							}
-
-							if (courses[l].getSection1StudentCount() > 20
-									|| courses[l].getSection2StudentCount() > 20) {
-								System.out.println("FUCK");
-							}
+		for (int i = 0; i < 500; i++) {
+			sortStudentsByHours();
+			if (i % 2 == 0)
+				shuffleArrayList();
+			for (int k = 0; k < students.length; k++) {
+				if (students[k].getCourseCount() < 5) {
+					for (int l = 0; l < courses.length; l++) {
+						if (checkAvailability1(students[randomStudentArrayList.get(k)],
+								courses[randomClassArrayList.get(l)])) {
+						} else if (checkAvailability2(students[randomStudentArrayList.get(k)],
+								courses[randomClassArrayList.get(l)])) {
 						}
 
+						if (courses[l].getSection1StudentCount() > 20 || courses[l].getSection2StudentCount() > 20) {
+							System.out.println("FUCK");
+						}
 					}
-					totalCoursesTaken += students[k].getCourseCount();
-					if (students[k].hasDuplicates()) {
-						System.out.println(students[k].toStringCourseList());
-					}
-				}
-				if (totalCoursesTaken > maxValue) {
-					maxValue = totalCoursesTaken;
-					JSONOutput.students = students;
-					JSONOutput.courses = courses;
-				}
-				totalCoursesTaken = 0;
-				
-			}
-			
-		}
-		
-		System.out.println("Max Value is: " + maxValue);
 
-		try {
-			JSONOutput.convertToJson();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				}
+				totalCoursesTaken += students[k].getCourseCount();
+				if (students[k].hasDuplicates()) {
+					System.out.println(students[k].toStringCourseList());
+				}
+			}
+			if (totalCoursesTaken > maxValue) {
+				maxValue = totalCoursesTaken;
+				JSONOutput.students = students;
+				JSONOutput.courses = courses;
+			}
+
+			totalCoursesTaken = 0;
 		}
+
+
+		System.out.println("Max Value is: " + maxValue);
+		JSONOutput.convertToJson();
 
 	}
 

@@ -1,6 +1,5 @@
 package dopeCode;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 
@@ -15,7 +14,7 @@ public class JSONOutput {
 		JSONOutput.courses = course;
 	}
 
-	public static String convertToJson() throws IOException {
+	public static String convertToJson() {
 		String formattedJson = "";
 
 		JSONObject jsonMainCourses = new JSONObject();
@@ -68,19 +67,14 @@ public class JSONOutput {
 		jsonMainMain.put("classes", jsonMainCourses);
 		System.out.println(jsonMainMain);
 		
-		FileWriter file = new FileWriter ("Data/output.json");
-		
+		StringWriter out = new StringWriter();
 		
 		try {
-			file.write(jsonMainMain.toJSONString());
-			System.out.println("Successfully Copied JSON Object to File...");
-		
+			json.writeJSONString(out);
+			return out.toString();
 		} catch (IOException e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			file.flush();
-			file.close();
 		}
 		
 		return formattedJson;
