@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Student {
 	private String name;
 	private TimeSlot [] time;
-	private  ArrayList<Courses> courseList = new ArrayList<Courses>();
+	private ArrayList<Courses> courseList1 = new ArrayList<Courses>();
+	private ArrayList<Courses> courseList2 = new ArrayList<Courses>();
 	
 	public Student(String name, TimeSlot [] time){
 		this.name = name;
@@ -25,15 +26,21 @@ public class Student {
 		return formattedString;
 	}
 	
-	public  void addCourse(Courses course){
-		if(!this.courseList.contains(course)){
-			this.courseList.add(course);
+	public  void addCourse1(Courses course){
+		if(!this.courseList1.contains(course) && course.getSection1StudentCount()<20){
+			this.courseList1.add(course);
+		}
+	}
+	public  void addCourse2(Courses course){
+		if(!this.courseList2.contains(course) && course.getSection2StudentCount()<20){
+			this.courseList2.add(course);
 		}
 	}
 	
 	public int getCourseCount (){
-		return this.courseList.size();
+		return this.courseList1.size() + this.courseList2.size();
 	}
+	
 	
 	
 }
