@@ -22,11 +22,6 @@ public class Main {
 		shuffleArrayList();
 		
 		for (int z = 0; z<10000; z++){
-//			System.out.println(randomStudentArrayList);
-			students = PopulateStudents.getDataFromStudentsJson();
-			courses = PopulateCourses.getDataFromCoursesJson();
-//			shuffleArrayList();
-			sortStudentsByHours();
 			for (int k = 0; k<students.length; k++){
 				if (students[k].getCourseCount() < 5) {
 					for (int l = 0; l<courses.length; l++){
@@ -42,6 +37,7 @@ public class Main {
 			}	
 			System.out.println(totalCoursesTaken);	
 			totalCoursesTaken = 0;
+			shuffleArrayList();
 		}
 		
 		

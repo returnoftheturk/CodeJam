@@ -25,8 +25,7 @@ public class Main {
 //			System.out.println(randomStudentArrayList);
 			students = PopulateStudents.getDataFromStudentsJson();
 			courses = PopulateCourses.getDataFromCoursesJson();
-//			shuffleArrayList();
-			sortStudentsByHours();
+			shuffleArrayList();
 			for (int k = 0; k<students.length; k++){
 				if (students[k].getCourseCount() < 5) {
 					for (int l = 0; l<courses.length; l++){
