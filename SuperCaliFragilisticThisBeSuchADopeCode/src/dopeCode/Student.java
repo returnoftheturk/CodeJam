@@ -31,12 +31,12 @@ public class Student {
 	}
 	
 	public  void addCourse1(Courses course){
-		if(!this.courseList1.contains(course) && course.getSection1StudentCount()<20){
+		if(!this.courseList1.contains(course)&&!this.courseList2.contains(course) && course.getSection1StudentCount()<20){
 			this.courseList1.add(course);
 		}
 	}
 	public  void addCourse2(Courses course){
-		if(!this.courseList2.contains(course) && course.getSection2StudentCount()<20){
+		if(!this.courseList2.contains(course)&&!this.courseList1.contains(course) && course.getSection2StudentCount()<20){
 			this.courseList2.add(course);
 		}
 	}
@@ -55,7 +55,20 @@ public class Student {
 		}
 		return formattedString;
 	}
-	
+	public boolean hasDuplicates(){
+		boolean hasDup=false;
+		for (int i = 0; i < courseList1.size(); i++) {
+			String temp = courseList1.get(i).getName();
+			
+			for (int j = 0; j < courseList2.size(); j++) {
+				if (temp.equals(courseList2.get(j).getName())){
+					return true;
+				}
+			}
+		}
+		
+		return hasDup;
+	}
 	public int getTotalHoursAvailable(){
 		int totalHours = 0;
 		for (int i= 0; i< time.length; i++){

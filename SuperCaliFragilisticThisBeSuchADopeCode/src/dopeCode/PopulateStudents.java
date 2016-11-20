@@ -14,7 +14,7 @@ public class PopulateStudents {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object obj1 = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/studentsByAvailability.json"));
+			Object obj1 = parser.parse(new FileReader("Data/studentsByAvailability.json"));
 			JSONObject studentList = (JSONObject) obj1;
 
 			for (int i = 1; i <= 80; i++) {
