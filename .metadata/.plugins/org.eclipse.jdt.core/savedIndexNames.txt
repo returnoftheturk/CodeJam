@@ -1,21 +1,3 @@
 INDEX VERSION 1.129+C:\Mcgill\codejam\Junior_Team30\.metadata\.plugins\org.eclipse.jdt.core
-4164139556.index
-4143041746.index
-2355066768.index
-3400675815.index
-363248586.index
 643769649.index
-2050908165.index
-507044819.index
-2032977337.index
-3024903679.index
-1073190104.index
-262141639.index
-3299422388.index
-4042793792.index
-4067068589.index
 3865564089.index
-51915478.index
-2799350720.index
-1630659722.index
-1921434313.index

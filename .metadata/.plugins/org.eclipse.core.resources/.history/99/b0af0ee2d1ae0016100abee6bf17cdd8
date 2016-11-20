@@ -1,0 +1,69 @@
+package dopeCode;
+
+import java.sql.Time;
+
+public class TimeSlot {
+	public String day;
+	public String startTime;
+	public String endTime;
+	public Boolean[] availability = new Boolean[18];
+	
+	public TimeSlot(String day, String startTime, String endTime){
+		this.day = day;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		
+	}
+	
+	public String getDay(){
+		return this.day;
+	}
+	
+	public String getStartTime(){
+		return this.startTime;
+	}
+	
+	public String getEndTime(){
+		return this.endTime;
+	}
+	
+	public String toString(){
+		return "\nDay: " + day + "-Start Time: " + startTime + "-End Time: " + endTime;
+	}
+	
+	public void setStartTime(String newStartTime){
+		this.startTime = newStartTime;
+	}
+	
+	public void setEndTime(String newEndTime){
+		this.endTime = newEndTime;
+	}
+	
+	public  Time convertToTime(String inputTime){
+		switch (inputTime){
+		case "8:00am": return 0;
+		case "8:30am": return 0;
+		case "9:00am": return 0;
+		case "9:30am": return 0;
+		case "10:00am": return 0;
+		case "10:30am": return 0;
+		case "11:00am": return 0;
+		case "11:30am": return 0;
+		case "12:00am": return 0;
+		case "12:30am": return 0;
+		case "13:00am": return 0;
+		case "13:30am": return 0;
+		case "14:00am": return 0;
+		case "14:30am": return 0;
+		case "15:00am": return 0;
+		case "15:30am": return 0;
+		case "8:00am": return 0;
+		case "8:00am": return 0;
+		case "8:00am": return 0;
+		
+		}
+		Time outPutTime = java.sql.Time.valueOf(inputTime);
+		System.out.println(outPutTime);
+		return outPutTime;
+	}
+}

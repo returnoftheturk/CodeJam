@@ -1,60 +1,105 @@
 package dopeCode;
 
-import org.json.simple.parser.ParseException;
-import org.json.simple.JSONObject;
-
-import java.io.FileReader;
-
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-
 public class Main {
+	public static Courses[] courses = new Courses[10];
+	public static Student[] students = new Student[80];
+
 	public static void main(String args[]) {
-		JSONParser parser = new JSONParser();
+		students = PopulateStudents.getDataFromStudentsJson();
+		courses = PopulateCourses.getDataFromCoursesJson();
 
-		try {
-			Object obj = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/classes.json"));
-			System.out.println(obj.toString());
-			JSONObject classes = (JSONObject) obj;
+		int totalCoursesTaken = 0;
+
+		for (int i = 0; i < students.length; i++) {
+			for (int j = 0; j < courses.length; j++) {
+				for (int k = i; k < students.length; k++) {
+					if (students[k].getCourseCount() < 5) {
+						for (int l = j; l < courses.length; l++) {
+							if (checkAvailability1(students[k], courses[l])) {
+							} else if (checkAvailability2(students[k], courses[l])) {
+							}
+							if (l==courses.length-1 && j!=0){
+								l=0;
+							}
+							if (l==j-1 && j!=0){
+								break;
+							}
+						}
+					}
+					if (k==students.length-1 && i!=0){
+						k=0;
+					}
+					if (k==i-1 && i!=0){
+						break;
+					}
+					
+					
+					totalCoursesTaken += students[k].getCourseCount();
+				
+				
+				}
+				
+//				for (int i = 0; i < 10; i++) {
+//					System.out.println("\n Course: " + courses[i] + " " + courses[i].toStringStudentList());
+//				}
+				System.out.println(totalCoursesTaken);
+				totalCoursesTaken = 0;
 			
-			JSONObject classesObject = (JSONObject) classes.get("classes");
-			System.out.println(classesObject);
-			String coursename = "";
-			System.out.println(classesObject.size());
-			for (int i = 1; i < classesObject.size(); i++) {
-				String name, day1, start1, end1, day2, start2, end2;
-				int courseNumber = 100 + i;
-				
-				JSONObject courseObject = (JSONObject) classesObject.get(Integer.toString(courseNumber));
-				System.out.println(courseObject);
-				
-				name = (String) courseObject.get("name");
-				
-				JSONObject times = (JSONObject) courseObject.get("times");
-				
-				JSONObject timeObject1 = (JSONObject) times.get("time1");
-				day1 = (String) timeObject1.get("day");
-				start1 = (String) timeObject1.get("start");
-				end1 = (String) timeObject1.get("end");
-				
-				JSONObject timeObject2 = (JSONObject) times.get("time2");
-				day2 = (String) timeObject2.get("day");
-				start2 = (String) timeObject2.get("start");
-				end2 = (String) timeObject2.get("end");
-				
-				Time time1 = new Time (day1, start1, end1);
-				Time time2 = new Time (day2, start2, end2);
-				
-				Courses course = new Courses(name, time1, time2);
-				
-				
+			
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-
 	}
 
+	public static boolean checkAvailability1(Student student, Courses course) {
+		TimeSlot[] studentAvailability = student.getStudentAvailability();
+		TimeSlot courseTime = course.getTime1();
+		for (int i = 0; i < studentAvailability.length; i++) {
+			if (studentAvailability[i].getDay().equals(courseTime.getDay())) {
+				if (studentAvailability[i].getStartTimeInt() <= courseTime.getEndTimeInt()
+						&& studentAvailability[i].getEndTimeInt() >= courseTime.getEndTimeInt()) {
+					if (student.getCourseCount() < 5 && course.getSection2StudentCount() < 20) {
+						studentAvailability[i].setStartTime(courseTime.getEndTime());
+						student.addCourse1(course);
+						course.addStudentSection1(student);
+						// updates start time. might need to also check end
+						// time.
+						// possible bug
+						// student is available for this class at this time
+						return true;
+					}
+				}
 
+			}
+
+		}
+		return false;
+	}
+
+	public static boolean checkAvailability2(Student student, Courses course) {
+		TimeSlot[] studentAvailability = student.getStudentAvailability();
+		TimeSlot courseTime = course.getTime2();
+
+		for (int i = 0; i < studentAvailability.length; i++) {
+			if (studentAvailability[i].getDay().equals(courseTime.getDay())) {
+				if (studentAvailability[i].getStartTimeInt() <= courseTime.getEndTimeInt()
+						&& studentAvailability[i].getEndTimeInt() >= courseTime.getEndTimeInt()) {
+					if (student.getCourseCount() < 5 && course.getSection2StudentCount() < 20) {
+						studentAvailability[i].setStartTime(courseTime.getEndTime());
+						student.addCourse2(course);
+						course.addStudentSection2(student);
+						// updates start time. might need to also check end
+						// time.
+						// possible bug
+						// student is available for this class at this time
+						return true;
+					}
+
+				}
+
+			}
+
+		}
+		return false;
+	}
 
 }
