@@ -1,11 +1,3 @@
-/* CODE WRITTEN BY:  AHMET AKGUL
- * VIVEK GIDLA
- * SAIF ELKHOLI
- * RAWAD KARAM
- * 
- * MAIN METHOD TO RUN EVERYTHING.
- */
-
 package dopeCode;
 
 import java.io.IOException;
@@ -31,7 +23,7 @@ public class Main {
 
 		int maxValue = 0;
 
-		for (int j = 0; j < 10000; j++) {
+		for (int j = 0; j < 1000; j++) {
 			students = PopulateStudents.getDataFromStudentsJson();
 			courses = PopulateCourses.getDataFromCoursesJson();
 
