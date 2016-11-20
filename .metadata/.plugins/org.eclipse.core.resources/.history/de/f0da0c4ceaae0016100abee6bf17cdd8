@@ -31,7 +31,7 @@ public class Main {
 						}
 					}
 					totalCoursesTaken+=students[k].getCourseCount();
-//					System.out.println(students[k].getCourseCount());
+					System.out.println(students[k].getCourseCount());
 				}
 //				System.out.println(totalCoursesTaken);
 				totalCoursesTaken = 0;

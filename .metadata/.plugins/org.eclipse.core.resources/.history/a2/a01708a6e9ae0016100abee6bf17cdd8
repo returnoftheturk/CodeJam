@@ -21,19 +21,16 @@ public class Main {
 						for(int l=0; l<courses.length;l++){
 							if (checkAvailability1(students[k], courses[l])){
 //								checkAvailability1(students[k], courses[l]);
-//								System.out.println("Section1");
+								System.out.println("Section1");
 							} else if (checkAvailability2(students[k], courses[l])){
 //								checkAvailability2(students[k], courses[l]);
-//								System.out.println("Section2");	
+								System.out.println("Section2");	
 							}
-							System.out.println(courses[l].getSection1StudentCount());
-							System.out.println(courses[l].getSection2StudentCount());
 						}
 					}
 					totalCoursesTaken+=students[k].getCourseCount();
-//					System.out.println(students[k].getCourseCount());
 				}
-//				System.out.println(totalCoursesTaken);
+				System.out.println(totalCoursesTaken);
 				totalCoursesTaken = 0;
 			}
 		}
