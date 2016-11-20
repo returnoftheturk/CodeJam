@@ -1,0 +1,20 @@
+package dopeCode;
+
+public class JSONOutput {
+	private Student student;
+	private Courses course;
+	
+	public JSONOutput (Student student, Courses course){
+		this.student = student;
+		this.course = course;
+	}
+	
+	public String convertToJson(){
+		String formattedJson = "";
+		
+		
+		
+		
+		return formattedJson;
+	}
+}

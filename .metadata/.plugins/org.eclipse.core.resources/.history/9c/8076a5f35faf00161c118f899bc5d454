@@ -1,0 +1,42 @@
+package dopeCode;
+
+import java.io.StringWriter;
+
+import org.json.simple.JSONObject;
+
+public class JSONOutput {
+	public static Student[] students = new Student[80];
+	public static Courses[] courses = new Courses[10];
+	
+	public JSONOutput (Student[] student, Courses[] course){
+		JSONOutput.students = student;
+		JSONOutput.courses = course;
+	}
+	
+	
+	public static String convertToJson(){
+		String formattedJson = "";
+		JSONObject json = new JSONObject();
+		for (int i =0; i<courses.length; i++){ //for each class
+			for (int j=0; j<2; j++){ //for each section
+				for (int k=0; k<courses[i].getSection1StudentCount(); k++){
+//					JSONObject json = new JSONObject();
+					json.put("id", Integer.toString(courses[i].section1StudentList.get(k).getIdNumber()));					
+					StringWriter out = new StringWriter();
+				}
+
+				
+				
+				
+				
+				
+			}
+			
+		}
+		
+		
+		
+		System.out.println(json);
+		return formattedJson;
+	}
+}

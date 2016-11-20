@@ -1,0 +1,116 @@
+package dopeCode;
+
+import java.util.ArrayList;
+
+public class Courses {
+	private final String name;
+	private final TimeSlot time1, time2;
+	ArrayList<Student> section1StudentList = new ArrayList<Student>();
+	ArrayList<Student> section2StudentList = new ArrayList<Student>();
+	
+	public Courses(String name, TimeSlot time1, TimeSlot time2){
+		this.name = name;
+		this.time1 = time1;
+		this.time2 = time2;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public TimeSlot getTime1(){
+		return this.time1;
+	}
+	
+	public TimeSlot getTime2(){
+		return this.time2;
+	}
+	
+	public String toString(){
+		return "Name: " + name + "\nTime 1: " + time1.toString() + "\nTime 2: " + time2.toString();
+	}
+	
+	public void addStudentSection1(Student student){
+		if(!this.section1StudentList.contains(student) && this.section1StudentList.size()<20){
+			this.section1StudentList.add(student);
+		}
+	}
+	public void addStudentSection2(Student student){
+		if(!this.section2StudentList.contains(student) && this.section2StudentList.size()<20){
+			this.section2StudentList.add(student);
+		}
+	}
+	public int getSection1StudentCount(){
+		return this.section1StudentList.size();
+	}
+	public int getSection2StudentCount(){
+		return this.section2StudentList.size();
+	}
+	
+	public String toStringStudentList(){
+		String formattedString = "";
+		for (int i = 0; i < section1StudentList.size(); i++){
+			formattedString+= section1StudentList.get(i).getName() + " - " + "1\n";
+		}
+		for (int i = 0; i < section2StudentList.size(); i++){
+			formattedString+= section2StudentList.get(i).getName() + " - " + "2\n";
+		}
+		return formattedString;
+	}
+	
+	public String toStringJsonSectionName(){
+		String formattedString = "";
+		String upperCaseName = name.toUpperCase();
+		return formattedString;
+		
+		
+	}
+	
+	public String convertTimeToString(String inputTime) {
+		switch (inputTime) {
+		case "08:00am":
+			return "AM0800";
+		case "08:30am":
+			return "AM0830";
+		case "09:00am":
+			return "AM0900";
+		case "09:30am":
+			return "AM0930";
+		case "10:00am":
+			return "AM1000";
+		case "10:30am":
+			return "AM1030";
+		case "11:00am":
+			return "AM1100";
+		case "11:30am":
+			return "AM1130";
+		case "12:00pm":
+			return "PM1200";
+		case "12:30pm":
+			return "PM1230";
+		case "01:00pm":
+			return "PM0100";
+		case "01:30pm":
+			return "PM0130";
+		case "02:00pm":
+			return "PM0200";
+		case "02:30pm":
+			return "PM0230";
+		case "03:00pm":
+			return "PM0300";
+		case "03:30pm":
+			return "PM0330";
+		case "04:00pm":
+			return "PM0400";
+		case "04:30pm":
+			return "PM0430";
+		case "05:00pm":
+			return "PM0500";
+		default:
+			return "";
+
+		}
+	}
+	
+
+}

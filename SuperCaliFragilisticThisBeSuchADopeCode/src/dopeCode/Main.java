@@ -12,101 +12,53 @@ public class Main {
 	public static void main(String args[]) {
 		students = PopulateStudents.getDataFromStudentsJson();
 		courses = PopulateCourses.getDataFromCoursesJson();
+		
 
 		int totalCoursesTaken = 0;
 
-		// sortStudentsByHours();
-
 		populateRandomStudentArrayList();
 		populateRandomClassArrayList();
-		shuffleArrayList();
-		int maxValue = 0;
-		for (int z = 0; z < 20000; z++) {
-			students = PopulateStudents.getDataFromStudentsJson();
-			courses = PopulateCourses.getDataFromCoursesJson();
-			
-			for (int i = 0; i < 10; i++) {
-				sortStudentsByHours();
-				if (i%2==0)
-					shuffleArrayList();
-				for (int k = 0; k < students.length; k++) {
-					if (students[k].getCourseCount() < 5) {
-						for (int l = 0; l < courses.length; l++) {
-							if (checkAvailability1(students[randomStudentArrayList.get(k)],
-									courses[randomClassArrayList.get(l)])) {
-							} else if (checkAvailability2(students[randomStudentArrayList.get(k)],
-									courses[randomClassArrayList.get(l)])) {
-							}
 
-							if(courses[l].getSection1StudentCount()>20||courses[l].getSection2StudentCount()>20){
-								System.out.println("FUCK");
-							}
+		shuffleArrayList();
+
+		int maxValue = 0;
+
+		for (int i = 0; i < 500; i++) {
+			sortStudentsByHours();
+			if (i % 2 == 0)
+				shuffleArrayList();
+			for (int k = 0; k < students.length; k++) {
+				if (students[k].getCourseCount() < 5) {
+					for (int l = 0; l < courses.length; l++) {
+						if (checkAvailability1(students[randomStudentArrayList.get(k)],
+								courses[randomClassArrayList.get(l)])) {
+						} else if (checkAvailability2(students[randomStudentArrayList.get(k)],
+								courses[randomClassArrayList.get(l)])) {
 						}
 
+						if (courses[l].getSection1StudentCount() > 20 || courses[l].getSection2StudentCount() > 20) {
+							System.out.println("FUCK");
+						}
+					}
 
-					}
-					totalCoursesTaken += students[k].getCourseCount();
-					if(students[k].hasDuplicates()){
-						System.out.println(students[k].toStringCourseList());
-					}
 				}
-				if (totalCoursesTaken > maxValue) {
-					maxValue = totalCoursesTaken;
+				totalCoursesTaken += students[k].getCourseCount();
+				if (students[k].hasDuplicates()) {
+					System.out.println(students[k].toStringCourseList());
 				}
-				
-//				 System.out.println(totalCoursesTaken);
-				totalCoursesTaken = 0;
 			}
-			
+			if (totalCoursesTaken > maxValue) {
+				maxValue = totalCoursesTaken;
+				JSONOutput.students = students;
+				JSONOutput.courses = courses;
+			}
 
+			totalCoursesTaken = 0;
 		}
-		// System.out.println(randomStudentArrayList);
+
 
 		System.out.println("Max Value is: " + maxValue);
-
-		// for (int i = 0; i < students.length; i++) {
-		// for (int j = 0; j < courses.length; j++) {
-		// shuffleArrayList();
-		// for (int k = i; k < students.length; k++) {
-		// if (students[k].getCourseCount() < 5) {
-		// for (int l = j; l < courses.length; l++) {
-		// if (checkAvailability1(students[randomStudentArrayList.get(k)],
-		// courses[randomClassArrayList.get(l)])) {
-		// } else if
-		// (checkAvailability2(students[randomStudentArrayList.get(k)],
-		// courses[randomClassArrayList.get(l)])) {
-		// }
-		// if (l==courses.length-1 && j!=0){
-		// l=0;
-		// }
-		// if (l==j-1 && j!=0){
-		// break;
-		// }
-		// }
-		// }
-		// if (k==students.length-1 && i!=0){
-		// k=0;
-		// }
-		// if (k==i-1 && i!=0){
-		// break;
-		// }
-		//
-		//
-		// totalCoursesTaken += students[k].getCourseCount();
-		//
-		//
-		// }
-		//
-		//// for (int i = 0; i < 10; i++) {
-		//// System.out.println("\n Course: " + courses[i] + " " +
-		// courses[i].toStringStudentList());
-		//// }
-		//// System.out.println(totalCoursesTaken);
-		// totalCoursesTaken = 0;
-		//
-		//
-		// }
-		// }
+		JSONOutput.convertToJson();
 
 	}
 
