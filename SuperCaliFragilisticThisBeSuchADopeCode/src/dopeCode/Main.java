@@ -9,7 +9,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
 public class Main {
+	public static Courses [] courses = new Courses[10];
+	public static Student [] students = new Student[80];
+	
 	public static void main(String args[]) {
+		getDataFromStudentsJson();
+	}
+	
+	public static void getDataFromCoursesJson(){
 		JSONParser parser = new JSONParser();
 
 		try {
@@ -19,7 +26,7 @@ public class Main {
 			
 			JSONObject classesObject = (JSONObject) classes.get("classes");
 //			System.out.println(classesObject);
-			String coursename = "";
+
 //			System.out.println(classesObject.size());
 			for (int i = 1; i <= classesObject.size(); i++) {
 				String name, day1, start1, end1, day2, start2, end2;
@@ -48,14 +55,47 @@ public class Main {
 //				System.out.println(time1.toString());
 //				System.out.println(time2.toString());
 				
-				Courses course = new Courses(name, time1, time2);
-				System.out.println(course.toString());
-				//viveks gay
+				courses[i-1] = new Courses(name, time1, time2);
+				System.out.println(courses[i-1].toString());
+				
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static void getDataFromStudentsJson(){
+		JSONParser parser = new JSONParser();
+
+		try {
+			Object obj1 = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/studentsByAvailability.json"));
+			JSONObject studentList = (JSONObject) obj1;
+			
+			for (int i = 1; i<=80; i++){
+				JSONArray studentArray = (JSONArray) studentList.get(Integer.toString(i)); 
+				String studentName = (String) studentArray.get(0);
+				
+				JSONObject studentAvail = (JSONObject) studentArray.get(1);
+				
+				Time [] studentTimes = new Time [studentAvail.size()];
+				for (int j = 0; j<studentAvail.size(); j++){
+					JSONObject availabilityi = (JSONObject) studentAvail.get("avail"+Integer.toString(j+1));
+
+					studentTimes[j] = new Time ((String)availabilityi.get("day"), (String)availabilityi.get("start"), (String)availabilityi.get("end"));
+					
+				}
+				students[i-1] = new Student (studentName, studentTimes);
+				System.out.println(students[i-1].toString());
+				
+				
+				
+			}
+			
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 

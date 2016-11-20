@@ -12,5 +12,17 @@ public class Student {
 	double fridayAvail;
 	double saturdayAvail;
 	double sundayAvail;
+	private String name;
+	private Time [] time;
+	
+	public Student(String name, Time [] time){
+		this.name = name;
+		this.time = time;
+		
+	}
+	
+	public String toString(){
+		return name + " " + time[3].toString();
+	}
 	
 }
