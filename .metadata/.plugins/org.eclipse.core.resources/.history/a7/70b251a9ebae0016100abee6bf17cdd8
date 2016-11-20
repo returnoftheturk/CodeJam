@@ -26,10 +26,9 @@ public class Main {
 //								checkAvailability2(students[k], courses[l]);
 //								System.out.println("Section2");	
 							}
-//							System.out.println(courses[l].getSection1StudentCount());
-//							System.out.println(courses[l].getSection2StudentCount());
+							System.out.println(courses[l].getSection1StudentCount());
+							System.out.println(courses[l].getSection2StudentCount());
 						}
-						System.out.println("\n Student: " + k + " " + students[k].toStringCourseList());
 					}
 					totalCoursesTaken+=students[k].getCourseCount();
 //					System.out.println(students[k].getCourseCount());

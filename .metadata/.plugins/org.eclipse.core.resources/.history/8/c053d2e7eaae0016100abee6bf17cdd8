@@ -14,8 +14,8 @@ public class Main {
 //		}
 		int totalCoursesTaken = 0;
 		
-//		for (int i = 0; i<students.length; i++){
-//			for (int j = 0; j<courses.length; j++){
+		for (int i = 0; i<students.length; i++){
+			for (int j = 0; j<courses.length; j++){
 				for(int k=0; k<students.length;k++){
 					if(students[k].getCourseCount()<5){
 						for(int l=0; l<courses.length;l++){
@@ -26,18 +26,17 @@ public class Main {
 //								checkAvailability2(students[k], courses[l]);
 //								System.out.println("Section2");	
 							}
-//							System.out.println(courses[l].getSection1StudentCount());
-//							System.out.println(courses[l].getSection2StudentCount());
+							System.out.println(courses[l].getSection1StudentCount());
+							System.out.println(courses[l].getSection2StudentCount());
 						}
-						System.out.println("\n Student: " + k + " " + students[k].toStringCourseList());
 					}
 					totalCoursesTaken+=students[k].getCourseCount();
 //					System.out.println(students[k].getCourseCount());
 				}
 //				System.out.println(totalCoursesTaken);
 				totalCoursesTaken = 0;
-//			}
-//		}
+			}
+		}
 	}
 	
 	public static boolean checkAvailability1(Student student, Courses course){

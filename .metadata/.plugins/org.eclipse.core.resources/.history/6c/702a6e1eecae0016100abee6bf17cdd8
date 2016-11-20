@@ -44,12 +44,9 @@ public class Student {
 	public String toStringCourseList(){
 		String formattedString = "";
 		for (int i = 0; i < courseList1.size(); i++){
-			formattedString+= courseList1.get(i).getName() + " - " + "1\n";
+			formattedString+= courseList1[i];
 		}
-		for (int i = 0; i < courseList2.size(); i++){
-			formattedString+= courseList2.get(i).getName() + " - " + "2\n";
-		}
-		return formattedString;
+		return 
 	}
 	
 	

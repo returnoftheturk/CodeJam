@@ -41,15 +41,8 @@ public class Student {
 		return this.courseList1.size() + this.courseList2.size();
 	}
 	
-	public String toStringCourseList(){
-		String formattedString = "";
-		for (int i = 0; i < courseList1.size(); i++){
-			formattedString+= courseList1.get(i).getName() + " - " + "1\n";
-		}
-		for (int i = 0; i < courseList2.size(); i++){
-			formattedString+= courseList2.get(i).getName() + " - " + "2\n";
-		}
-		return formattedString;
+	public void toStringCourseList(){
+		
 	}
 	
 	

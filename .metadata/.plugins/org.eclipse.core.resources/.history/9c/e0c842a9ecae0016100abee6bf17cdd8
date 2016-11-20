@@ -29,7 +29,6 @@ public class Main {
 //							System.out.println(courses[l].getSection1StudentCount());
 //							System.out.println(courses[l].getSection2StudentCount());
 						}
-						System.out.println("\n Student: " + k + " " + students[k].toStringCourseList());
 					}
 					totalCoursesTaken+=students[k].getCourseCount();
 //					System.out.println(students[k].getCourseCount());
