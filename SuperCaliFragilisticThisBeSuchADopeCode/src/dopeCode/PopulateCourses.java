@@ -13,7 +13,7 @@ public class PopulateCourses {
 		JSONParser parser = new JSONParser();
 	
 		try {
-			Object obj = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/classes.json"));
+			Object obj = parser.parse(new FileReader("Data/classes.json"));
 			// System.out.println(obj.toString());
 			JSONObject classes = (JSONObject) obj;
 	

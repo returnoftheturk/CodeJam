@@ -14,7 +14,7 @@ public class PopulateStudents {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object obj1 = parser.parse(new FileReader("/McGill/codejam/Junior_Team30/studentsByAvailability.json"));
+			Object obj1 = parser.parse(new FileReader("Data/studentsByAvailability.json"));
 			JSONObject studentList = (JSONObject) obj1;
 
 			for (int i = 1; i <= 80; i++) {
@@ -32,6 +32,7 @@ public class PopulateStudents {
 
 				}
 				students[i - 1] = new Student(studentName, studentTimes);
+				students[i - 1].setIdNumber(i);
 				
 				
 //				System.out.println(students[i - 1].toString());

@@ -1,0 +1,39 @@
+package dopeCode;
+
+public class JSONOutput {
+	private Student[] student;
+	private Courses[] course;
+	
+	public JSONOutput (Student[] student, Courses[] course){
+		this.student = student;
+		this.course = course;
+	}
+	
+	public void setStudentList(Student[] student){
+		this.student = student;
+	}
+	
+	public void setClassList(Student[] student){
+		this.student = student;
+	}
+	
+	public String convertToJson(){
+		String formattedJson = "";
+		for (int i =0; i<course.length; i++){ //for each class
+			for (int j=0; j<2; j++){ //for each section
+				
+				
+				
+				
+				
+				
+			}
+			
+		}
+		
+		
+		
+		System.out.println(formattedJson);
+		return formattedJson;
+	}
+}

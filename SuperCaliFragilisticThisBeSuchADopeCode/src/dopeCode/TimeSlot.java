@@ -99,4 +99,79 @@ public class TimeSlot {
 
 		}
 	}
+	
+	public String toStringJsonSectionName(){
+		String formattedString = "";
+		String upperCaseName = day.toUpperCase();
+		formattedString+= upperCaseName + "-" + convertTimeToString(startTime) + "-" + convertTimeToString(endTime);
+		return formattedString;
+	}
+	
+	public String convertTimeToString(String inputTime) {
+		switch (inputTime) {
+		case "08:00am":
+			return "AM0800";
+		case "08:30am":
+			return "AM0830";
+		case "09:00am":
+			return "AM0900";
+		case "09:30am":
+			return "AM0930";
+		case "10:00am":
+			return "AM1000";
+		case "10:30am":
+			return "AM1030";
+		case "11:00am":
+			return "AM1100";
+		case "11:30am":
+			return "AM1130";
+		case "12:00pm":
+			return "PM1200";
+		case "12:30pm":
+			return "PM1230";
+		case "01:00pm":
+			return "PM0100";
+		case "01:30pm":
+			return "PM0130";
+		case "02:00pm":
+			return "PM0200";
+		case "02:30pm":
+			return "PM0230";
+		case "03:00pm":
+			return "PM0300";
+		case "03:30pm":
+			return "PM0330";
+		case "04:00pm":
+			return "PM0400";
+		case "04:30pm":
+			return "PM0430";
+		case "05:00pm":
+			return "PM0500";
+		default:
+			return "";
+
+		}
+	}
+	
+	public String getStartTimeFormatted(){
+		String formattedOutPut="";
+		
+		
+		formattedOutPut= startTime.replaceFirst("pm", "");	
+		formattedOutPut= startTime.replaceFirst("am","");
+
+		
+		return formattedOutPut;
+		
+	}
+	public String getEndTimeFormatted(){
+		String formattedOutPut="";
+		
+		formattedOutPut= endTime.replaceFirst("pm", "");
+		formattedOutPut= endTime.replaceFirst("am", "");
+
+		
+
+		return formattedOutPut;
+	}
 }

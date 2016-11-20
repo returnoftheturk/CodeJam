@@ -1,0 +1,58 @@
+package dopeCode;
+
+import java.io.IOException;
+import java.io.StringWriter;
+
+import org.json.simple.JSONObject;
+
+public class JSONOutput {
+	public static Student[] students = new Student[80];
+	public static Courses[] courses = new Courses[10];
+	
+	public JSONOutput (Student[] student, Courses[] course){
+		JSONOutput.students = student;
+		JSONOutput.courses = course;
+	}
+	
+	
+	public static String convertToJson(){
+		String formattedJson = "";
+//		JSONObject jsonStudent = new JSONObject();
+		JSONObject jsonSection1 = new JSONObject();
+		JSONObject jsonSection2 = new JSONObject();
+		JSONObject jsonClass = new JSONObject();
+		JSONObject jsonMain = new JSONObject();
+		
+		for (int i =0; i<courses.length; i++){ //for each class
+				
+				for (int k=0; k<courses[i].getSection1StudentCount(); k++){
+
+					JSONObject jsonStudent = new JSONObject();
+					jsonStudent.put("id", Integer.toString(courses[i].section1StudentList.get(k).getIdNumber()));					
+					jsonStudent.put("name", courses[i].section1StudentList.get(k).getName());
+					
+					
+					jsonSection1.put("student"+Integer.toString(k), jsonStudent);
+				}
+				
+				for (int k=0; k<courses[i].getSection2StudentCount(); k++){
+
+					JSONObject jsonStudent = new JSONObject();
+					jsonStudent.put("id", Integer.toString(courses[i].section2StudentList.get(k).getIdNumber()));					
+					jsonStudent.put("name", courses[i].section2StudentList.get(k).getName());
+					
+					
+					jsonSection2.put("student"+Integer.toString(k), jsonStudent);
+				}				
+				jsonClass.put(courses[i].getTime2(), jsonSection2);
+
+			
+		}
+		System.out.println(jsonClass);
+		
+		
+		
+//		System.out.println(jsonStudent);
+		return formattedJson;
+	}
+}

@@ -4,3 +4,6 @@
 1479611276736	Rename local variable 'startT'
 1479613856407	Delete element
 1479613861734	Delete element
+1479661301352	Rename field 'randomArrayList'
+1479674757207	Rename local variable 'json'
+1479681593579	Rename local variable 'jsonMain'
