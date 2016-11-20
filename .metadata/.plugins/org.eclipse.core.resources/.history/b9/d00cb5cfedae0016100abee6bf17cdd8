@@ -47,16 +47,5 @@ public class Courses {
 		return this.section2StudentList.size();
 	}
 	
-	public String toStringStudentList(){
-		String formattedString = "";
-		for (int i = 0; i < section1StudentList.size(); i++){
-			formattedString+= section1StudentList.get(i).getName() + " - " + "1\n";
-		}
-		for (int i = 0; i < section2StudentList.size(); i++){
-			formattedString+= section2StudentList.get(i).getName() + " - " + "2\n";
-		}
-		return formattedString;
-	}
-	
 
 }

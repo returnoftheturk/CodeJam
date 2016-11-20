@@ -17,9 +17,6 @@ public class Student {
 	public TimeSlot[] getStudentAvailability(){
 		return time;
 	}
-	public String getName(){
-		return name;
-	}
 	
 	public String toString(){
 		String formattedString = name;
