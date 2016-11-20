@@ -22,8 +22,7 @@ Paste this file into Scheduler/src
 
 
 5:
-****Run the web part****
-
+Open the Scheduler Folder in your favourite web IDE (The index.html **MUST** be run in a localhost)
 
 6:
 Be awe struck
