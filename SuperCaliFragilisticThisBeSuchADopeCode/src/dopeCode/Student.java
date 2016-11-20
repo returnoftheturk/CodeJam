@@ -55,6 +55,15 @@ public class Student {
 		return formattedString;
 	}
 	
+	public int getTotalHoursAvailable(){
+		int totalHours = 0;
+		for (int i= 0; i< time.length; i++){
+			totalHours += time[i].getEndTimeInt();
+			totalHours -= time[i].getStartTimeInt();
+		}
+		return totalHours;
+	}
+	
 	
 	
 }

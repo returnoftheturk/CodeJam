@@ -1,22 +1,33 @@
 package dopeCode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Main {
 	public static Courses[] courses = new Courses[10];
 	public static Student[] students = new Student[80];
+	public static ArrayList<Integer> randomStudentArrayList = new ArrayList<Integer>();
+	public static ArrayList<Integer> randomClassArrayList = new ArrayList<Integer>();
 
 	public static void main(String args[]) {
 		students = PopulateStudents.getDataFromStudentsJson();
 		courses = PopulateCourses.getDataFromCoursesJson();
 
 		int totalCoursesTaken = 0;
-
+		for (int i = 0; i<students.length; i++){
+			System.out.println(students[i].getTotalHoursAvailable());
+		}
+		populateRandomStudentArrayList();
+		populateRandomClassArrayList();
+		shuffleArrayList();
 		for (int i = 0; i < students.length; i++) {
 			for (int j = 0; j < courses.length; j++) {
+				shuffleArrayList();
 				for (int k = i; k < students.length; k++) {
 					if (students[k].getCourseCount() < 5) {
 						for (int l = j; l < courses.length; l++) {
-							if (checkAvailability1(students[k], courses[l])) {
-							} else if (checkAvailability2(students[k], courses[l])) {
+							if (checkAvailability1(students[randomStudentArrayList.get(k)], courses[randomClassArrayList.get(l)])) {
+							} else if (checkAvailability2(students[randomStudentArrayList.get(k)], courses[randomClassArrayList.get(l)])) {
 							}
 							if (l==courses.length-1 && j!=0){
 								l=0;
@@ -42,7 +53,7 @@ public class Main {
 //				for (int i = 0; i < 10; i++) {
 //					System.out.println("\n Course: " + courses[i] + " " + courses[i].toStringStudentList());
 //				}
-				System.out.println(totalCoursesTaken);
+//				System.out.println(totalCoursesTaken);
 				totalCoursesTaken = 0;
 			
 			
@@ -100,6 +111,26 @@ public class Main {
 
 		}
 		return false;
+	}
+	
+	public static void populateRandomStudentArrayList(){
+		for (int i = 0; i<80; i++){
+			randomStudentArrayList.add(i);
+		}
+	
+	}
+	
+	public static void populateRandomClassArrayList(){
+		for (int i = 0; i<10; i++){
+			randomClassArrayList.add(i);
+		}
+	
+	}
+	
+	public static void shuffleArrayList(){
+		Collections.shuffle(randomStudentArrayList);
+		Collections.shuffle(randomClassArrayList);
+//		System.out.println(randomArrayList);
 	}
 
 }
