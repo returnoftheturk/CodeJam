@@ -20,16 +20,19 @@ public class Main {
 		for (int i = 0; i<students.length; i++){
 			for (int j = 0; j<courses.length; j++){
 				for(int k=0; k<students.length;k++){
-					for(int l=0; l<courses.length;l++){
-						if (checkAvailability1(students[k], courses[l])){
+					if(students[k].getCourseCount()<5){
+						for(int l=0; l<courses.length;l++){
+							if (checkAvailability1(students[k], courses[l])){
+								
+							} else if (checkAvailability2(students[k], courses[l])){
+								
+								
+							}
 							
-						} else if (checkAvailability2(students[k], courses[l])){
+							
 							
 							
 						}
-						
-						
-						
 						
 					}
 				
