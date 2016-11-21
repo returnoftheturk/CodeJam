@@ -68,7 +68,7 @@ public class JSONOutput {
 		jsonMainMain.put("classes", jsonMainCourses);
 		System.out.println(jsonMainMain);
 		
-		FileWriter file = new FileWriter ("Data/json.json");
+		FileWriter file = new FileWriter ("Data/output.json");
 		
 		
 		try {
